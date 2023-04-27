@@ -48,4 +48,80 @@ public class Reservation implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "idEmploy")
     )
     private Set<Employ> employees;
+
+    public Integer getIdReservation() {
+        return idReservation;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+    public Integer getCost() {
+        return cost;
+    }
+
+    public void setCost(Integer cost) {
+        this.cost = cost;
+    }
+
+    public Integer getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Car getCarFK() {
+        return carFK;
+    }
+
+    public void setCarFK(Car carFK) {
+        this.carFK = carFK;
+    }
+
+    public Client getClientFK() {
+        return clientFK;
+    }
+
+    public void setClientFK(Client clientFK) {
+        this.clientFK = clientFK;
+    }
+
+    public Set<Employ> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employ> employees) {
+        this.employees = employees;
+    }
 }

@@ -34,4 +34,64 @@ public class Car implements Serializable {
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "carFK")
     @JsonIgnoreProperties("carFK")
     private List<Reservation> reservations;
+
+    /**
+     *
+     * @return
+     */
+    public Integer getIdCar() {
+        return idCar;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getPlate() {
+        return plate;
+    }
+
+    public void setPlate(String plate) {
+        this.plate = plate;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public CarType getCarTypeFK() {
+        return carTypeFK;
+    }
+
+    public void setCarTypeFK(CarType carTypeFK) {
+        this.carTypeFK = carTypeFK;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
 }
