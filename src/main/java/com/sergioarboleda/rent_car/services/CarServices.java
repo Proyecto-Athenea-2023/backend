@@ -11,22 +11,50 @@ public class CarServices {
     @Autowired
     private CarRepository carRepository;
 
+    /**
+     *
+     * @return
+     */
     public List<Car> getAllCars(){
-
+       return this.carRepository.getAll();
     }
 
+    /**
+     *
+     * @param year
+     * @return
+     */
     public List<Car> getAllCarsByYear(Integer year){
-
+       if(year < 1980) // There is no cars older than 1980
+           return null;
+       return carRepository.getAllByYear(year);
     }
 
-    public Optional<Car> getCarById(Integer id){
-
+    /**
+     *
+     * @param carId
+     * @return
+     */
+    public Optional<Car> getCarById(Integer carId){
+        return carRepository.getById(carId);
     }
 
+    /**
+     *
+     * @param plate
+     * @return
+     */
     public Optional<Car> getCarByPlate(String plate){
-
+        // TODO Verify plate regular expression (regex): [A-Z]^3 [0-9]^3
+        return carRepository.getByPlate(plate);
     }
 
+
+    /**
+     *
+     * @param car
+     * @return
+     */
     public Car insertCar(Car car){
 
     }
@@ -35,7 +63,16 @@ public class CarServices {
 
     }
 
-    public boolean deleteCar(Integer carId){
-
+    /**
+     *
+     * @param carId
+     * @return
+     */
+    public Boolean deleteCar(Integer carId){
+        Boolean success = getCarById(carId).map(car -> {
+            carRepository.delete(car);
+            return true;
+        }).orElse(false);
+        return success;
     }
 }
