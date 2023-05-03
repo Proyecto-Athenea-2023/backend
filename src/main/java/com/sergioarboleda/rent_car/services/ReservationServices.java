@@ -45,8 +45,24 @@ public class ReservationServices {
         return reservationRepository.getById(reservationId);
     }
 
+    /**
+     *
+     * @param reservation
+     * @return
+     */
     public Reservation insertReservation(Reservation reservation){
-
+        if((reservation.getCarFK() != null) && (reservation.getClientFK() != null)){
+            if((reservation.getStartDate() != null) && (reservation.getEndDate() != null) &&
+                    (reservation.getEndDate().compareTo(reservation.getStartDate()) < 0))
+                if((reservation.getStatus() != null) != (reservation.getCost() != null))
+                    return reservationRepository.save(reservation);
+                else
+                    return reservation;
+            else
+                return reservation;
+        }
+        else
+            return reservation;
     }
 
     public Reservation updateReservation(Reservation reservation){
