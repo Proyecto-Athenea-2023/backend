@@ -16,7 +16,7 @@ public class Employ implements Serializable {
     @Column(length = 100, nullable = false)
     private String name;
 
-    private Boolean is_admin = false;
+    private Boolean isAdmin = false;
 
     @ManyToMany(mappedBy = "employees")
     private Set<Reservation> reservations;
@@ -33,12 +33,12 @@ public class Employ implements Serializable {
         this.name = name;
     }
 
-    public Boolean getIs_admin() {
-        return is_admin;
+    public Boolean getIsAdmin() {
+        return isAdmin;
     }
 
-    public void setIs_admin(Boolean is_admin) {
-        this.is_admin = is_admin;
+    public void setIsAdmin(Boolean is_admin) {
+        this.isAdmin = is_admin;
     }
 
     public Set<Reservation> getReservations() {
