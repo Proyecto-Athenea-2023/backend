@@ -52,10 +52,13 @@ public class ReservationServices {
      */
     public Reservation insertReservation(Reservation reservation){
         if((reservation.getCarFK() != null) && (reservation.getClientFK() != null)){
+            // TODO check datetime format
             if((reservation.getStartDate() != null) && (reservation.getEndDate() != null) &&
                     (reservation.getEndDate().compareTo(reservation.getStartDate()) < 0))
-                if((reservation.getStatus() != null) != (reservation.getCost() != null))
+                if((reservation.getStatus() != null) != (reservation.getCost() != null)) {
+                    reservation.setStatus(reservation.getStatus().toLowerCase());
                     return reservationRepository.save(reservation);
+                }
                 else
                     return reservation;
             else
@@ -65,8 +68,34 @@ public class ReservationServices {
             return reservation;
     }
 
+    /**
+     *
+     * @param reservation
+     * @return
+     */
     public Reservation updateReservation(Reservation reservation){
-
+        if(reservation.getIdReservation() != null){
+            Optional<Reservation> temp = reservationRepository.getById(reservation.getIdReservation());
+            if(temp.isPresent()){
+                if(reservation.getStatus() != null)
+                    temp.get().setStatus(reservation.getStatus().toLowerCase());
+                if(reservation.getCost() != null)
+                    temp.get().setCost(reservation.getCost());
+                if(reservation.getGrade() != null)
+                    temp.get().setGrade(reservation.getGrade());
+                if(reservation.getComment() != null)
+                    temp.get().setComment(reservation.getComment());
+                if(reservation.getEndDate() != null){
+                    if(reservation.getEndDate().compareTo(temp.get().getStartDate()) > 0)
+                        temp.get().setEndDate(reservation.getEndDate());
+                }
+                return reservationRepository.save(temp.get());
+            }
+            else
+                return reservation;
+        }
+        else
+            return reservation;
     }
 
     /**
