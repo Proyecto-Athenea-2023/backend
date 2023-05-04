@@ -56,6 +56,7 @@ public class CarServices {
      * @return
      */
     public Car insertCar(Car car){
+        // TODO how to deal with car to insert with an ID?
         if((car.getPlate() != null) && (car.getYear() != null) && (car.getBrand() != null) &&
                 (car.getColor() != null) && car.getCarTypeFK() != null){
             Optional<Car> temp = carRepository.getByPlate(car.getPlate());
