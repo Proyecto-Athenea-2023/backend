@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.Optional;
 
 public interface ClientCRUDRepository extends CrudRepository<Client, Integer> {
-    public Optional<Client> findByNickname(String nickname);
-    public Optional<Client> findByEmail(String email);
+    Optional<Client> findByNickname(String nickname);
+    Optional<Client> findByEmail(String email);
 }

@@ -33,7 +33,7 @@ public class ReservationRepository {
 
     /**
      *
-     * @param idRepository
+     * @param reservationId
      * @return
      */
     public Optional<Reservation> getById(Integer reservationId){
