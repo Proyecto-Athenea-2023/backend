@@ -1,7 +1,7 @@
 package com.sergioarboleda.rent_car.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,30 +24,58 @@ public class CarType implements Serializable {
     @JsonIgnoreProperties("carTypeFK")
     private List<Car> cars;
 
+    /**
+     *
+     * @return
+     */
     public Integer getCarTypeId() {
         return carTypeId;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLine() {
         return line;
     }
 
+    /**
+     *
+     * @param line
+     */
     public void setLine(String line) {
         this.line = line;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLevel() {
         return level;
     }
 
+    /**
+     *
+     * @param level
+     */
     public void setLevel(String level) {
         this.level = level;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Car> getCars() {
         return cars;
     }
 
+    /**
+     *
+     * @param cars
+     */
     public void setCars(List<Car> cars) {
         this.cars = cars;
     }

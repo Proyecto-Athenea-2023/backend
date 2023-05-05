@@ -1,7 +1,7 @@
 package com.sergioarboleda.rent_car.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.io.Serializable;
 
@@ -18,6 +18,8 @@ public class PQR implements Serializable {
 
     @Column(length = 300, nullable = false)
     private String content;
+
+    // TODO add date
 
     @ManyToOne
     @JoinColumn(name="idClient")

@@ -1,8 +1,9 @@
 package com.sergioarboleda.rent_car.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.*;
 
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -43,6 +44,7 @@ public class Car implements Serializable {
         return idCar;
     }
 
+
     /**
      *
      * @return
@@ -51,46 +53,90 @@ public class Car implements Serializable {
         return plate;
     }
 
+    /**
+     *
+     * @param plate
+     */
     public void setPlate(String plate) {
         this.plate = plate;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getYear() {
         return year;
     }
 
+    /**
+     *
+     * @param year
+     */
     public void setYear(Integer year) {
         this.year = year;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getBrand() {
         return brand;
     }
 
+    /**
+     *
+     * @param brand
+     */
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getColor() {
         return color;
     }
 
+    /**
+     *
+     * @param color
+     */
     public void setColor(String color) {
         this.color = color;
     }
 
+    /**
+     *
+     * @return
+     */
     public CarType getCarTypeFK() {
         return carTypeFK;
     }
 
+    /**
+     *
+     * @param carTypeFK
+     */
     public void setCarTypeFK(CarType carTypeFK) {
         this.carTypeFK = carTypeFK;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Reservation> getReservations() {
         return reservations;
     }
 
+    /**
+     *
+     * @param reservations
+     */
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
