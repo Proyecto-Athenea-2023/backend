@@ -3,10 +3,12 @@ package com.sergioarboleda.rent_car.services;
 import com.sergioarboleda.rent_car.models.PQR;
 import com.sergioarboleda.rent_car.repositories.PqrRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class PQRServices {
 
     @Autowired

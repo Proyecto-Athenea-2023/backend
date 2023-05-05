@@ -3,17 +3,19 @@ package com.sergioarboleda.rent_car.services;
 import com.sergioarboleda.rent_car.models.Car;
 import com.sergioarboleda.rent_car.repositories.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CarServices {
     @Autowired
     private CarRepository carRepository;
 
     /**
-     *
-     * @return
+     * This method gets all cars persisted in the database
+     * @return car's list
      */
     public List<Car> getAllCars(){
        return this.carRepository.getAll();
