@@ -1,10 +1,10 @@
-package com.sergioarboleda.costumes;
+package com.sergioarboleda.rent_car;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CostumesApplicationTests {
+class RentCarApplicationTests {
 
 	@Test
 	void contextLoads() {
