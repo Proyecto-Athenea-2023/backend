@@ -39,8 +39,10 @@ public class ClientServices {
      * @return
      */
     public Optional<Client> getClientByEmail(String email){
-        // TODO validate regex: [a-z0-9]^*@domain.com
-        return clientRepository.getByEmail(email);
+        if(Utilities.validateEmail(email))
+            return clientRepository.getByEmail(email);
+        else
+            return null;
     }
 
     /**
@@ -64,8 +66,9 @@ public class ClientServices {
             Optional<Client> temp_id = clientRepository.getById(client.getIdClient());
             if(temp_id.isPresent())
                 return client; // There is a client in the database with the same id
-            if(client.getEmail() != null) {
-                // TODO validate regex: [a-z0-9]^*@domain.com
+            if((client.getEmail() != null)) {
+                if(!Utilities.validateEmail(client.getEmail()))
+                    return client;
                 Optional<Client> temp_email = clientRepository.getByEmail(client.getEmail());
                 if(temp_email.isPresent())
                     return client; // There is a client in the database with the same email

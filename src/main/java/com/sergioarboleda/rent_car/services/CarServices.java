@@ -47,8 +47,10 @@ public class CarServices {
      * @return
      */
     public Optional<Car> getCarByPlate(String plate){
-        // TODO Verify plate regular expression (regex): [A-Z]^3 [0-9]^3
-        return carRepository.getByPlate(plate);
+        if(Utilities.validatePlate(plate))
+            return carRepository.getByPlate(plate);
+        else
+            return null;
     }
 
 
@@ -61,9 +63,13 @@ public class CarServices {
         // TODO how to deal with car to insert with an ID?
         if((car.getPlate() != null) && (car.getYear() != null) && (car.getBrand() != null) &&
                 (car.getColor() != null) && car.getCarTypeFK() != null){
-            Optional<Car> temp = carRepository.getByPlate(car.getPlate());
-            if(temp.isEmpty() && car.getYear() > 1950)
-                return carRepository.save(car);
+            if(Utilities.validatePlate(car.getPlate())) {
+                Optional<Car> temp = carRepository.getByPlate(car.getPlate());
+                if (temp.isEmpty() && car.getYear() > 1950)
+                    return carRepository.save(car);
+                else
+                    return car;
+            }
             else
                 return car;
         }

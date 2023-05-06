@@ -38,7 +38,7 @@ public class PQRServices {
      * @return
      */
     public PQR insertPQR(PQR pqr){
-        if((pqr.getContent() != null) && (pqr.getType() != null) && (pqr.getClientFK() != null))
+        if((pqr.getContent() != null) && (pqr.getType() != null) && (pqr.getClientFK() != null) && (pqr.getCreationDate() != null))
             return pqrRepository.save(pqr);
         else
             return pqr;
