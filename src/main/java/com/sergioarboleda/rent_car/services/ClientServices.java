@@ -110,7 +110,7 @@ public class ClientServices {
                     temp_id.get().setPassword(client.getPassword());
                 if(client.getEmail() != null){
                     Optional<Client> temp_email = clientRepository.getByEmail(client.getEmail());
-                    if(temp_email.isPresent())
+                    if(temp_email.isPresent() && (temp_email.get().getIdClient() != client.getIdClient()))
                         return client; // There is a client in the database with the same email
                 }
                 return clientRepository.save(temp_id.get());

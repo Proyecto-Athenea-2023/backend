@@ -1,0 +1,182 @@
+// ------------------------------- Page //
+body{
+    font-family: Georgia, serif;
+    font-size: 18px;
+    color: #000000;
+    max-width: 100%;
+    text-decoration: none;
+    font-variant: normal;
+    text-transform: none;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+}
+
+input, select {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px #111111;
+    padding: 5px;
+    font-size: 17px;
+    height: 25px;
+    width: 250px;
+}
+
+label {
+    font-size: 17px;
+    color: #111111;
+    font-weight: lighter;
+}
+
+.header{
+    background: #002255;
+    font-size: 40px;
+    color: #FFFFFF;
+    text-align: center;
+    height: 80px;
+    vertical-align: middle;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.menu {
+    text-align: center;
+    background: ;
+    padding-bottom: 20px;
+}
+
+.button-menu{
+    border-radius: 40px 10px 40px 10px;
+    border: 1px solid #DDDDDD;
+    font-size: 17px;
+    vertical-align: top;
+    color: #EEEEEE;
+    background: #000099;
+    height: 30px;
+    width: 130px;
+
+}
+
+.footer{
+    text-align: center;
+    font-size: 13px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #222222;
+    color: #CCCCCC;
+}
+
+.new-item {
+    text-align: center;
+}
+
+// ------------------------------- Tables //
+.row.table {
+    text-align: center;
+}
+
+.table-data {
+    text-align: center;
+    padding: 5px;
+}
+
+table.table-data {
+    border: 1px solid #111111;
+    width: auto;
+    height: auto;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+table.table-data thead {
+    background: #333333;
+}
+
+table.table-data td, table.table-data th {
+    border: 1px solid #222222;
+    padding: 5px 5px;
+}
+
+table.table-data thead th {
+    color: #EEEEEE;
+}
+
+table.table-data tr:nth-child(even) {
+    background: rgb(242, 242, 242, 0.15);
+}
+
+.right {
+    text-align: right;
+}
+
+.left{
+    text-align: left;
+}
+
+// ------------------------------- Forms //
+.buttons-form {
+}
+
+.button-new {
+    color: #FFFFFF;
+    background: #0000FF;
+    border-radius: 35px;
+    border: 2px solid #01032B;
+    width: 200px;
+    height: 35px;
+}
+
+.button-add {
+    color: #FFFFFF;
+    background: #226F04;
+    border-radius: 25px;
+    border: 2px solid #01032B;
+    width: 150px;
+    height: 30px;
+}
+
+.button-update {
+    color: #FFFFFF;
+    background: #e68a00;
+    border-radius: 25px;
+    border: 2px solid #01032B;
+    width: 150px;
+    height: 30px;
+}
+
+
+// ------------------------------- Modal //
+.modal {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 300px;
+    z-index: 1;
+    width: auto;
+    height: auto;
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #F2F2F2;
+    border: 1px solid #222222;
+    width: 400px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    animation-name: modal-animation;
+    animation-duration: 0.5s;
+}
+
+@keyframes modal-animation {
+    from {
+        -top: -100px;
+        opacity: 0;
+    }
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
