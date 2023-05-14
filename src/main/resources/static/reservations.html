@@ -1,0 +1,240 @@
+<!--
+* <p>Copyright: Copyright (c) 2023</p>
+*
+* <h3>License</h3>
+*
+* Copyright (c) 2023 by Carlos Andres Sierra Virguez. <br>
+* All rights reserved. <br>
+*
+* <p>Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following conditions are met:
+*   <ul>
+*       <li> Redistributions of source code must retain the above copyright notice,
+*            this list of conditions and the following disclaimer.
+*       <li> Redistributions in binary form must reproduce the above copyright notice,
+*            this list of conditions and the following disclaimer in the documentation
+*            and/or other materials provided with the distribution.
+*       <li> Neither the name of the copyright owners, their employers, nor the
+*            names of its contributors may be used to endorse or promote products
+*            derived from this software without specific prior written permission.
+*   </ul>
+* <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+*    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+*    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+*    DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNERS OR CONTRIBUTORS BE
+*    LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+*    CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+*    SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+*    INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+*    CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+*    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+*    POSSIBILITY OF SUCH DAMAGE.
+*
+* @author <A HREF="https://www.linkedin.com/in/casierrav/"> Carlos Andres Sierra </A>
+* (E-mail: <A HREF="mailto:carlos.andres.sierra.v@gmail.com">carlos.andres.sierra.v@gmail.com</A> )
+* @version 1.0
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent-A-Car Online - Reservaciones</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE-Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Carlos Andres Sierra" />
+    <meta name="classification" content="rent, car, online, travel" />
+    <meta name="keywords" content="rent, car, online, travel" />
+    <meta name="description" content="This is a website for a rent-a-car company" />
+
+    <base href="/" />
+
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/base_styles.css">
+
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="js/reservations.js"></script>
+</head>
+<body>
+    <div class="container authenticated" style="display: none">
+        Autenticado como: <span id="username"></span>
+        <button onclick="logout();">Cerrar Sesi&oacute;n</button>
+    </div>
+
+    <div class="container header">
+        <div class="row">
+            <div class="col">
+                Rent-A-Car Online
+            </div>
+        </div>
+    </div>
+    <div class="container menu">
+        <div class="row">
+            <div class="col">
+                <nav>
+                    <a href="index.html"><button class="button-menu">Inicio</button></a>
+                    <a href="car.html"><button class="button-menu">Carros</button></a>
+                    <a href="#"><button class="button-menu">Reservaciones</button></a>
+                    <a href="pqrs.html"><button class="button-menu">PQRs</button></a>
+                    <!-- Admin -->
+                    <a href="clients.html"><button class="button-menu">Clientes</button></a>
+                    <a href="employees.html"><button class="button-menu">Empleados</button></a>
+                    <a href="car_type.html"><button class="button-menu">Tipos de Carro</button></a>
+                    <a href="reports.html"><button class="button-menu">Reportes</button></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="container content">
+        <div class="row">
+            <div class="col">
+                <h2>Reservaciones</h2>
+            </div>
+        </div>
+
+        <div class="row new-item">
+            <div class="col">
+                <button id="btnNewReservation" class="button-new" onclick="openModal(-1);">Nueva Reservaci&oacute;n</button>
+            </div>
+        </div>
+
+        <div class="row table">
+            <div class="col">
+                <table id="tblClients" class="table-data">
+                    <thead>
+                    <tr>
+                        <th>No. Reservaci&oacute;n</th>
+                        <th>Cliente</th>
+                        <th>Carro</th>
+                        <th>Estado</th>
+                        <th>Inicio</th>
+                        <th>Fin</th>
+                        <th>Costo</th>
+                        <th>Calificaci&oacute;n</th>
+                        <th>Comentarios</th>
+                        <th>Actualizar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="modalReservation" class="modal">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col">
+                        <h3 id="modalTitle"></h3>
+                    </div>
+                </div>
+                <div id="divId" class="row">
+                    <div class="col right">
+                        <label>No. Reservaci&oacute;n</label>
+                    </div>
+                    <div class="col left">
+                        <input type="number" id="txtId" value="" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col right">
+                        <label>Cliente</label>
+                    </div>
+                    <div class="col left">
+                        <select id="cbxClient"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col right">
+                        <label>Carro</label>
+                    </div>
+                    <div class="col left">
+                        <select id="cbxCar"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col right">
+                        <label>Estado</label>
+                    </div>
+                    <div class="col left">
+                        <select id="cbxStatus">
+                            <option value="en reserva" selected>en reserva</option>
+                            <option value="en servicio">en servicio</option>
+                            <option value="cancelado">cancelado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col right">
+                        <label>Fecha de Inicio</label>
+                    </div>
+                    <div class="col left">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col right">
+                        <label>Fecha de Fin</label>
+                    </div>
+                    <div class="col left">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col right">
+                        <label>Costo</label>
+                    </div>
+                    <div class="col left">
+                        <input type="number" id="txtCost" value="" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col right">
+                        <label>Calificaci&oacute;n (1[muy malo] a 10[muy bueno])</label>
+                    </div>
+                    <div class="col left">
+                        <select id="cbxGrade"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col right">
+                        <label>Comentarios</label>
+                    </div>
+                    <div class="col left">
+                        <textarea id="txtComment" value="" rows="5" cols="50"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col buttons-form">
+                        <button id="btnAddReservation" class="btnAdd" onclick="insertReservation();">Agregar</button>
+                        <button id="btnUpdateReservation" class="btnUpdate" onclick="updateReservation();">Actualizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container footer">
+        <div class="row">
+            <div class="col">
+                &copy; Proyecto Atenea 2023
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+                var logout = function(){
+                    $.post("/logout", function(){
+                        $("#username").html('');
+                        $(".unauthenticated").show();
+                        $(".authenticated").hide();
+                    });
+                    return true;
+                }
+        </script>
+</body>
+</html>

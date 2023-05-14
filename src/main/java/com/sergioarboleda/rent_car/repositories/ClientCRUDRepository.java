@@ -8,4 +8,10 @@ import java.util.Optional;
 public interface ClientCRUDRepository extends CrudRepository<Client, Integer> {
     Optional<Client> findByNickname(String nickname);
     Optional<Client> findByEmail(String email);
+
+    /**
+     * SELECT count(*) AS exists
+     * FROM client
+     * WHERE nickname=? AND password=?;
+     */
 }
