@@ -103,7 +103,7 @@
 
         <div class="row table">
             <div class="col">
-                <table id="tblClients" class="tblData">
+                <table id="tblClients" class="table-data">
                     <thead>
                     <tr>
                         <th>No. Reservaci&oacute;n</th>
@@ -145,7 +145,7 @@
                         <label>Cliente</label>
                     </div>
                     <div class="col left">
-
+                        <select id="cbxClient"></select>
                     </div>
                 </div>
                 <div class="row">
@@ -153,7 +153,7 @@
                         <label>Carro</label>
                     </div>
                     <div class="col left">
-
+                        <select id="cbxCar"></select>
                     </div>
                 </div>
                 <div class="row">
@@ -161,7 +161,11 @@
                         <label>Estado</label>
                     </div>
                     <div class="col left">
-
+                        <select id="cbxStatus">
+                            <option value="en reserva" selected>en reserva</option>
+                            <option value="en servicio">en servicio</option>
+                            <option value="cancelado">cancelado</option>
+                        </select>
                     </div>
                 </div>
                 <div class="row">
@@ -185,15 +189,15 @@
                         <label>Costo</label>
                     </div>
                     <div class="col left">
-
+                        <input type="number" id="txtCost" value="" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col right">
-                        <label>Calificaci&oacute;</label>
+                        <label>Calificaci&oacute;n (1[muy malo] a 10[muy bueno])</label>
                     </div>
                     <div class="col left">
-
+                        <select id="cbxGrade"></select>
                     </div>
                 </div>
                 <div class="row">
@@ -201,7 +205,7 @@
                         <label>Comentarios</label>
                     </div>
                     <div class="col left">
-                        <input type="text" id="txtComment" value="" />
+                        <textarea id="txtComment" value="" rows="5" cols="50"></textarea>
                     </div>
                 </div>
                 <div class="row">
